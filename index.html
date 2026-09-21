@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto škola Džale - Beograd | Obuka vozača svih kategorija</title>
+<meta name="description" content="Auto škola Džale u Beogradu - teorijska i praktična obuka, polaganje ispita, plaćanje na rate. Kategorije AM, A1, A2, A, B, C, CE, D.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #c8102e;
+    --accent-dark: #93081f;
+    --accent-darker: #6e0616;
+    --accent-soft: rgba(200, 16, 46, 0.07);
+    --accent-soft-2: rgba(200, 16, 46, 0.14);
+    --accent-glow: rgba(200, 16, 46, 0.22);
+    --bg: #fdfbfb;
+    --bg-alt: #f7f2f2;
+    --text: rgba(20, 15, 16, 0.94);
+    --text-muted: rgba(20, 15, 16, 0.66);
+    --text-faint: rgba(20, 15, 16, 0.46);
+    --border: rgba(20, 15, 16, 0.1);
+    --radius-btn: 8px;
+    --radius-card: 18px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  p { color: var(--text-muted); max-width: 65ch; }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { display: block; max-width: 100%; }
+
+  .wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .wrap { padding-left: 20px; padding-right: 20px; }
+  }
+
+  section { position: relative; }
+
+  .section-pad {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  @media (max-width: 768px) {
+    .section-pad { padding-top: 64px; padding-bottom: 64px; }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .section-head p { font-size: 17px; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 15px 30px;
+    border-radius: var(--radius-btn);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 24px var(--accent-glow);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px var(--accent-glow);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .btn-white {
+    background: #fff;
+    color: var(--accent);
+  }
+
+  .btn-white:hover {
+    background: var(--bg-alt);
+    transform: translateY(-2px);
+  }
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header.scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 84px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo img {
+    height: 48px;
+    width: auto;
+  }
+
+  .logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  .logo-text span {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .nav-links a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.15s ease;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta { display: flex; align-items: center; gap: 20px; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 99;
+    padding: 40px 24px;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .mobile-menu .btn { margin-top: 20px; width: 100%; }
+
+  @media (max-width: 991px) {
+    .nav-links, .nav-cta .btn-outline-nav, header .nav-cta > .btn { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero p.lead {
+    font-size: 18px;
+    max-width: 46ch;
+    margin-bottom: 34px;
+    color: var(--text-muted);
+  }
+
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .hero-trust {
+    display: flex;
+    gap: 28px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  .hero-trust-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .hero-media {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(20, 15, 16, 0.12);
+  }
+
+  .hero-media img { width: 100%; height: 460px; object-fit: cover; }
+
+  @media (max-width: 991px) {
+    .hero-inner { grid-template-columns: 1fr; padding-top: 56px; padding-bottom: 56px; }
+    .hero-media img { height: 320px; }
+  }
+
+  /* PAIN SECTION */
+  .pain {
+    background: var(--accent-darker);
+    color: #fff;
+  }
+
+  .pain .wrap { padding-top: 60px; padding-bottom: 60px; }
+
+  .pain p {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 19px;
+    max-width: 62ch;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+  }
+
+  .pain p strong { color: #fff; font-weight: 700; }
+
+  /* GRID CARDS */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 991px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  }
+
+  .cat-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 28px 24px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .cat-card:hover {
+    box-shadow: 0 20px 40px rgba(20, 15, 16, 0.08);
+    transform: translateY(-4px);
+    border-color: var(--accent-soft-2);
+  }
+
+  .cat-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  .cat-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .cat-card p { font-size: 14.5px; margin: 0; }
+
+  /* PROCESS / TEORIJA PRAKSA */
+  .process-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .process-block.reverse .process-media { order: 2; }
+  .process-block.reverse .process-copy { order: 1; }
+
+  .process-media {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0 20px 44px rgba(20, 15, 16, 0.1);
+  }
+
+  .process-media img { width: 100%; height: 340px; object-fit: cover; }
+
+  .process-copy .step-tag {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .process-copy h3 {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+
+  .process-copy p { font-size: 16px; margin-bottom: 18px; }
+
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--text-muted);
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .check-list svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--accent);
+  }
+
+  .process-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 88px;
+  }
+
+  @media (max-width: 900px) {
+    .process-block, .process-block.reverse {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .process-block.reverse .process-media,
+    .process-block.reverse .process-copy { order: initial; }
+    .process-media img { height: 260px; }
+    .process-stack { gap: 56px; }
+  }
+
+  /* PRICING */
+  .pricing-panel {
+    background: var(--bg-alt);
+    border-radius: 24px;
+    padding: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .pricing-panel h3 { font-size: 26px; margin-bottom: 16px; }
+  .pricing-panel p { font-size: 16px; margin-bottom: 14px; }
+
+  .rate-box {
+    background: #fff;
+    border-radius: var(--radius-card);
+    padding: 32px;
+    border: 1px solid var(--border);
+  }
+
+  .rate-box .rate-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+
+  .rate-box ul { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+
+  .rate-box li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text-muted); }
+
+  .rate-box svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+  @media (max-width: 900px) {
+    .pricing-panel { grid-template-columns: 1fr; padding: 36px 24px; gap: 32px; }
+  }
+
+  /* GALLERY VOZNI PARK */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-item {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 14px 30px rgba(20, 15, 16, 0.08);
+  }
+
+  .gallery-item img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.4s ease; }
+
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  @media (max-width: 991px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
+
+  /* INSTRUCTORS */
+  .instructor-panel {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .instructor-media img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    box-shadow: 0 24px 48px rgba(20, 15, 16, 0.1);
+  }
+
+  .instructor-copy h3 { font-size: 26px; margin-bottom: 16px; }
+  .instructor-copy p { font-size: 16px; margin-bottom: 16px; }
+
+  @media (max-width: 900px) {
+    .instructor-panel { grid-template-columns: 1fr; gap: 28px; }
+    .instructor-media img { height: 280px; }
+  }
+
+  /* ABOUT */
+  .about-section { background: var(--bg-alt); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .about-copy h2 { font-size: clamp(28px, 3.6vw, 38px); margin-bottom: 18px; }
+  .about-copy p { font-size: 16.5px; margin-bottom: 16px; }
+
+  .about-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .value-item {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px 18px;
+    border: 1px solid var(--border);
+  }
+
+  .value-item svg { width: 26px; height: 26px; color: var(--accent); margin-bottom: 12px; }
+
+  .value-item h4 { font-size: 15px; margin-bottom: 6px; }
+  .value-item p { font-size: 13.5px; margin: 0; }
+
+  .about-media { position: relative; }
+
+  .placeholder-block {
+    background: #e7e2e2;
+    border: 1px dashed rgba(20, 15, 16, 0.25);
+    border-radius: var(--radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-faint);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    height: 420px;
+    padding: 20px;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-values { grid-template-columns: 1fr 1fr; }
+    .placeholder-block { height: 280px; }
+  }
+
+  /* PROOF SECTION */
+  .proof-section {
+    background: var(--accent);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .proof-section::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 70%);
+    pointer-events: none;
+  }
+
+  .proof-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .proof-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .proof-icon svg { width: 34px; height: 34px; color: #fff; }
+
+  .proof-inner h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+    max-width: 32ch;
+  }
+
+  .proof-inner p {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 16px;
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  /* CONTACT / CTA */
+  .contact-section { background: var(--bg-alt); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+
+  .contact-info-item svg {
+    width: 22px;
+    height: 22px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .contact-info-item h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .contact-info-item p { font-size: 15px; margin: 0; }
+
+  .contact-map {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .contact-form {
+    background: #fff;
+    border-radius: var(--radius-card);
+    padding: 40px;
+    border: 1px solid var(--border);
+  }
+
+  .contact-form h3 { font-size: 22px; margin-bottom: 22px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-field label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .form-field input, .form-field select, .form-field textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .contact-form .btn { width: 100%; margin-top: 8px; }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 28px 22px; }
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--accent-darker);
+    color: #fff;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    color: #fff;
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 16px;
+  }
+
+  .final-cta p {
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0 auto 34px;
+    max-width: 52ch;
+    font-size: 17px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #17110f;
+    color: rgba(255, 255, 255, 0.72);
+    padding-top: 64px;
+    padding-bottom: 32px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .footer-logo img { height: 40px; }
+  .footer-logo span { font-family: 'Poppins', sans-serif; font-weight: 700; color: #fff; font-size: 15px; }
+
+  footer p { color: rgba(255, 255, 255, 0.6); font-size: 14.5px; }
+
+  footer h4 {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 16px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  footer ul a { color: rgba(255, 255, 255, 0.6); font-size: 14.5px; transition: color 0.15s ease; }
+  footer ul a:hover { color: #fff; }
+
+  .footer-bottom {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* REVEAL ANIMATION */
+  .reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.pre {
+    opacity: 1;
+    transform: translateY(12px);
+  }
+
+  .reveal.pre.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">
+      <img src="assets/logo.webp" alt="Logo Auto škole Džale">
+      <span class="logo-text">Auto škola Džale<span>Beograd</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#kategorije">Kategorije</a>
+      <a href="#obuka">Obuka</a>
+      <a href="#cene">Cene</a>
+      <a href="#vozni-park">Vozni park</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#kontakt" class="btn btn-primary">Prijavi se za upis</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#kategorije">Kategorije</a>
+    <a href="#obuka">Obuka</a>
+    <a href="#cene">Cene</a>
+    <a href="#vozni-park">Vozni park</a>
+    <a href="#o-nama">O nama</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#kontakt" class="btn btn-primary">Prijavi se za upis</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="hero-badge">Auto škola Džale &middot; Beograd</span>
+      <h1>Do vozačke dozvole stižeš sigurno, uz instruktore kojima veruješ</h1>
+      <p class="lead">Vodimo te od prvog časa teorije do potpisa na ispitu. Radimo sve kategorije, od AM do D, sa terminima koji se uklapaju u tvoj raspored i ratama koje sam biraš.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-primary">Prijavi se za upis</a>
+        <a href="#kategorije" class="btn btn-outline">Pogledaj kategorije</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Sve kategorije, jedna škola
+        </div>
+        <div class="hero-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Plaćanje na rate
+        </div>
+        <div class="hero-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Fleksibilni termini
+        </div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="assets/casovi-voznje.webp" alt="Instruktor i polaznica auto škole Džale tokom časa vožnje">
+    </div>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="wrap">
+    <p>Možda si već odlagao upis jer te plaši sam ispit, ili jer termini nikad ne odgovaraju tvom radnom vremenu. <strong>Kod nas plaćaš u ratama koje sam dogovoriš</strong> i biraš časove kad tebi odgovara, ne kad se to nekom drugom uklopi.</p>
+  </div>
+</section>
+
+<section class="section-pad" id="kategorije">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Kategorije obuke</span>
+      <h2>Biraš kategoriju, mi vodimo obuku do kraja</h2>
+      <p>Radimo obuku za sve kategorije vozača, od mopeda do autobusa. Svaka kategorija ima svoj program teorije, vožnje i ispita.</p>
+    </div>
+    <div class="grid-4">
+      <div class="cat-card">
+        <div class="cat-letter">AM</div>
+        <h3>Moped</h3>
+        <p>Za vozače od 15 godina, prva vozačka dozvola za dvotočkaše.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">A1</div>
+        <h3>Lakši motocikl</h3>
+        <p>Motocikli manje snage, dobra osnova pre prelaska na jače kategorije.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">A2</div>
+        <h3>Motocikl srednje snage</h3>
+        <p>Za one koji već imaju iskustva i žele jači motor.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">A</div>
+        <h3>Motocikl bez ograničenja</h3>
+        <p>Puna dozvola za sve motocikle, bez obzira na snagu.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">B</div>
+        <h3>Putnički automobil</h3>
+        <p>Najtraženija kategorija, za svakodnevnu vožnju automobila.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">C</div>
+        <h3>Teretno vozilo</h3>
+        <p>Za vozače koji planiraju posao u transportu i logistici.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">CE</div>
+        <h3>Teretno vozilo sa prikolicom</h3>
+        <p>Nadogradnja na C kategoriju, za vožnju sa priključnim vozilom.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">D</div>
+        <h3>Autobus</h3>
+        <p>Za vozače koji žele da rade u prevozu putnika.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="obuka" style="background: var(--bg-alt);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Kako izgleda obuka</span>
+      <h2>Teorija, vožnja i prva pomoć, korak po korak</h2>
+      <p>Svaki polaznik prolazi kroz jasan raspored, bez preskakanja i bez žurbe kad ti nešto nije jasno.</p>
+    </div>
+    <div class="process-stack">
+      <div class="process-block">
+        <div class="process-media">
+          <img src="assets/casovi-obuke.webp" alt="Učionica za teorijsku obuku u auto školi Džale sa računarima i predavačem">
+        </div>
+        <div class="process-copy">
+          <span class="step-tag">Korak 1</span>
+          <h3>Teorijska obuka</h3>
+          <p>Predavanja držimo u učionici, uz table sa saobraćajnim znacima i test-simulacije koje ti pomažu da znaš šta te čeka na ispitu.</p>
+          <ul class="check-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Predavanja u malim grupama</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Testovi po programu iz saobraćajnih propisa</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Termini prilagođeni poslu i školi</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="process-block reverse">
+        <div class="process-media">
+          <img src="assets/casovi-voznje.webp" alt="Instruktor beleži napredak polaznice tokom časa vožnje">
+        </div>
+        <div class="process-copy">
+          <span class="step-tag">Korak 2</span>
+          <h3>Praktična obuka - časovi vožnje</h3>
+          <p>Vožnju učiš sa instruktorom koji te vodi od prvog uključenja motora, kroz grad, van grada i na sve manevre koji se traže na ispitu.</p>
+          <ul class="check-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Isti instruktor tokom cele obuke</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Vožnja u gradu, van grada i noću</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tempo prilagođen tebi, ne rasporedu</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="process-block">
+        <div class="process-media">
+          <img src="assets/prva-pomoc.webp" alt="Ruke pripremaju kutiju prve pomoći u autu">
+        </div>
+        <div class="process-copy">
+          <span class="step-tag">Korak 3</span>
+          <h3>Obuka iz prve pomoći</h3>
+          <p>Pre polaganja prolaziš i kurs prve pomoći, obavezan deo obuke za sve kategorije. Objašnjavamo ti šta radiš u slučaju saobraćajne nezgode.</p>
+          <ul class="check-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Predavanje i praktičan prikaz</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Uverenje koje ti treba za prijavu ispita</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="cene">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Cene i plaćanje</span>
+      <h2>Cenu dogovaramo na upisu, plaćaš u ratama koje sam biraš</h2>
+      <p>Cena obuke zavisi od kategorije koju upisuješ. Kod prijave dobijaš tačan iznos i taj iznos se ne menja tokom obuke.</p>
+    </div>
+    <div class="pricing-panel">
+      <div>
+        <h3>Plaćanje bez pritiska</h3>
+        <p>Ne moraš da imaš celu sumu na dan upisa. Dogovaramo broj rata koji ti odgovara, u skladu s tvojim mesečnim budžetom.</p>
+        <p>Instruktor i cena se ne menjaju tokom obuke, bez obzira koliko časova vožnje ti bude potrebno da se osećaš sigurno za ispit.</p>
+        <a href="#kontakt" class="btn btn-primary" style="margin-top: 10px;">Zatraži tačnu ponudu za tvoju kategoriju</a>
+      </div>
+      <div class="rate-box">
+        <div class="rate-title">Šta dobijaš u ceni</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Kompletnu teorijsku nastavu</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Sve časove praktične vožnje po programu</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Kurs prve pomoći</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Prijavu i pripremu za ispit</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Rate bez kamate, po dogovoru</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="background: var(--bg-alt);" id="ispit">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Polaganje ispita</span>
+      <h2>Na ispit izlaziš kad si stvarno spreman, ne kad se to nekom uklopi</h2>
+      <p>Prijavu za ispit radimo umesto tebe, u saobraćajnoj policiji. Pratimo te i na teorijskom i na praktičnom delu.</p>
+    </div>
+    <div class="grid-3">
+      <div class="cat-card">
+        <div class="cat-letter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg>
+        </div>
+        <h3>Teorijski ispit</h3>
+        <p>Polažeš test iz propisa nakon što proceniš, i mi procenimo, da si spreman.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><rect x="3" y="7" width="18" height="10" rx="2"></rect><circle cx="8" cy="17" r="1.5"></circle><circle cx="16" cy="17" r="1.5"></circle></svg>
+        </div>
+        <h3>Praktični ispit</h3>
+        <p>Vozimo isti tip trase koji vežbamo na časovima, bez iznenađenja u zadnji čas.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-letter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M4 4h16v16H4z" style="display:none"></path><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"></path></svg>
+        </div>
+        <h3>Podrška do kraja</h3>
+        <p>Ako ne uspeš iz prvog puta, sedamo, prolazimo šta je falilo i dogovaramo novi termin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="vozni-park">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Vozni park</span>
+      <h2>Vozila na kojima se stvarno vežba i polaže</h2>
+      <p>Obuku vozimo na urednim, redovno servisiranim vozilima, uz sve oznake koje se traže po propisu.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/vozni-park-auta-3sm.webp" alt="Tri vozila auto škole Džale parkirana jedno pored drugog">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/vozni-park-auta-4sm.webp" alt="Dva vozila auto škole Džale okrenuta prednjim delom jedno prema drugom">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/vozni-park-auta-5sm.webp" alt="Tri vozila auto škole Džale na parkingu ispred zgrade">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/vozni-park-auta-6sm.webp" alt="Vozilo, autobus i kamion iz voznog parka auto škole Džale">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="background: var(--bg-alt);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Instruktori</span>
+      <h2>Instruktori koji te ne guraju, već vode</h2>
+    </div>
+    <div class="instructor-panel">
+      <div class="instructor-media">
+        <img src="assets/polaganje-voznje.webp" alt="Instruktor auto škole Džale rukuje se sa polaznicom ispred vozila za polaganje">
+      </div>
+      <div class="instructor-copy">
+        <p>Naši instruktori rade s polaznicima godinama i znaju da svako uči drugačijim tempom. Neko treba pet časova više za paralelno parkiranje, neko za vožnju unazad. Kod nas nema žurbe.</p>
+        <p>Svaki instruktor prati tvoj napredak od prvog do zadnjeg časa i sa tobom odlučuje kad si spreman za ispit, ne pre toga.</p>
+        <p>Isti instruktor te vodi tokom cele obuke, tako da ne moraš svaki put da počinješ iznova s nekim novim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad about-section" id="o-nama">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <span class="eyebrow">O auto školi Džale</span>
+      <h2>Auto škola sa iskustvom u svim kategorijama vožnje</h2>
+      <p>Auto škola Džale radi u Beogradu i obučava vozače za kategorije AM, A1, A2, A, B, C, CE i D. Radimo sa polaznicima koji tek uče da voze i sa onima koji proširuju već postojeću dozvolu na teže kategorije.</p>
+      <p>Trudimo se da svaki korak, od upisa do izlaska na ispit, bude jasan i predvidiv. Bez skrivenih troškova, bez nejasnih termina, bez presije da požuriš kad nisi spreman.</p>
+      <div class="about-values">
+        <div class="value-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"></path></svg>
+          <h4>Pouzdano</h4>
+          <p>Radimo po jasnom programu, bez preskakanja koraka.</p>
+        </div>
+        <div class="value-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a8 8 0 0116 0v1"></path></svg>
+          <h4>Profesionalno</h4>
+          <p>Instruktori s iskustvom u radu sa polaznicima svih generacija.</p>
+        </div>
+        <div class="value-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          <h4>Pristupačno</h4>
+          <p>Rate koje se uklapaju u tvoj budžet, termini po dogovoru.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-media">
+      <img src="assets/polaganje-ispita.webp" alt="Učionica auto škole Džale spremna za teorijsku nastavu i polaganje" style="width:100%; height:420px; object-fit:cover; border-radius: var(--radius-card); box-shadow: 0 24px 48px rgba(20,15,16,0.1);">
+    </div>
+  </div>
+</section>
+
+<section class="proof-section section-pad">
+  <div class="wrap proof-inner">
+    <div class="proof-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"></path></svg>
+    </div>
+    <div>
+      <h3>Kod nas kandidati najčešće polažu ispit iz prvog puta</h3>
+      <p>To nije slučajnost. Iza toga stoji temeljna teorijska priprema, dovoljan broj časova vožnje i instruktori koji ne žure dok ne budeš siguran u sebe.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad contact-section" id="kontakt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Prijavi se za upis i zakaži prvi razgovor</h2>
+      <p>Ostavi svoje podatke, javljamo se istog ili narednog radnog dana da dogovorimo kategoriju, cenu i termine.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.98.33 1.94.6 2.87a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.21-1.17a2 2 0 012.11-.45c.93.27 1.89.47 2.87.6A2 2 0 0122 16.92z"></path></svg>
+          <div>
+            <h4>Telefon</h4>
+            <p>Pozovi nas radnim danima od 09h do 19h.</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" style="display:none"></path><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+          <div>
+            <h4>Email</h4>
+            <p>Pošalji upit i odgovaramo u toku dana.</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <h4>Lokacija</h4>
+            <p>Učionica i kancelarija auto škole Džale, Beograd.</p>
+          </div>
+        </div>
+        <div class="placeholder-block" style="height: 200px; margin-top: 24px;">
+          MAPA LOKACIJE AUTO ŠKOLE
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Prijavi se za upis</h3>
+        <form action="#" method="post">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="ime">Ime i prezime</label>
+              <input type="text" id="ime" name="ime" placeholder="Unesi ime i prezime">
+            </div>
+            <div class="form-field">
+              <label for="telefon">Telefon</label>
+              <input type="tel" id="telefon" name="telefon" placeholder="06x xxx xxxx">
+            </div>
+          </div>
+          <div class="form-field" style="margin-bottom: 16px;">
+            <label for="kategorija">Kategorija koju te interesuje</label>
+            <select id="kategorija" name="kategorija">
+              <option>AM</option>
+              <option>A1</option>
+              <option>A2</option>
+              <option>A</option>
+              <option selected>B</option>
+              <option>C</option>
+              <option>CE</option>
+              <option>D</option>
+            </select>
+          </div>
+          <div class="form-field" style="margin-bottom: 16px;">
+            <label for="poruka">Poruka (opciono)</label>
+            <textarea id="poruka" name="poruka" rows="4" placeholder="Napiši nam ako imaš pitanje o terminima ili ratama"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Pošalji prijavu za upis</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta section-pad">
+  <div class="wrap">
+    <h2>Vreme je da zakažeš prvi čas</h2>
+    <p>Javi se danas, dogovorimo kategoriju, cenu i termine koji ti odgovaraju, i kreni put vozačke dozvole.</p>
+    <a href="#kontakt" class="btn btn-white">Prijavi se za upis odmah</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logo.webp" alt="Logo Auto škole Džale">
+          <span>Auto škola Džale</span>
+        </div>
+        <p>Obuka vozača svih kategorija u Beogradu, od teorije do vozačke dozvole u ruci.</p>
+      </div>
+      <div>
+        <h4>Sekcije</h4>
+        <ul>
+          <li><a href="#kategorije">Kategorije</a></li>
+          <li><a href="#cene">Cene i rate</a></li>
+          <li><a href="#vozni-park">Vozni park</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="#kontakt">Prijavi se za upis</a></li>
+          <li><a href="#kontakt">Lokacija škole</a></li>
+          <li><a href="#">Politika privatnosti</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom wrap" style="padding-left:0; padding-right:0;">
+      <span>© 2026 Auto škola Džale. Sva prava zadržana.</span>
+      <span>Beograd, Srbija</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu toggle
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Sticky header blur on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Scroll reveal
+  const revealTargets = document.querySelectorAll('.cat-card, .process-block, .gallery-item, .value-item, .rate-box, .instructor-panel');
+  revealTargets.forEach(el => el.classList.add('reveal', 'pre'));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealTargets.forEach(el => observer.observe(el));
+  } else {
+    revealTargets.forEach(el => el.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
