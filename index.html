@@ -728,7 +728,7 @@
 <section id="instruktori">
   <div class="wrap">
     <span class="eyebrow">Instruktori</span>
-    <p class="quote" id="quote">Za instruktore nismo našli penzionere koji bi nešto da rade. Naši učitelji vožnje su mlađi ljudi, u radnom veku, stručni, aktivni i pažljivi.</p>
+    <p class="quote" id="quote">Naši instruktori su mladi, stručni i pažljivi, uz tebe od prvog časa do ispita.</p>
     <div class="inst-grid">
       <div class="inst-pt rv"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><h3>Licencirani profesionalci</h3><p>Iskusni instruktori i celo osoblje sa licencama.</p></div>
       <div class="inst-pt rv" style="--d:.06s"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><h3>Individualan pristup</h3><p>Prate tvoju vožnju i odmah ispravljaju greške, od prvog časa.</p></div>
@@ -1089,7 +1089,7 @@
 
   /* ---------- instruktori: reči se pale dok čitaš ---------- */
   var quote = document.getElementById('quote');
-  var HL = { 'penzionere': 1, 'mlađi': 1, 'ljudi,': 1 };
+  var HL = { 'mladi,': 1, 'stručni': 1, 'pažljivi,': 1 };
   quote.innerHTML = quote.textContent.split(' ').map(function (w) { return '<span class="w' + (HL[w] ? ' hl' : '') + '">' + w + '</span>'; }).join(' ');
   var words = quote.querySelectorAll('.w');
   function updateQuote() {
